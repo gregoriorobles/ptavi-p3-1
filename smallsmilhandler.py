@@ -11,20 +11,15 @@ class SmallSMILHandler (ContentHandler):
         self.width = ""
         self.height = ""
         self.background_color = ""
-        self.region_id = ""
-        self.region_top = ""
-        self.region_bottom = ""
-        self.region_left = ""
-        self.region_right = ""
-        self.img_src = ""
-        self.img_region = ""
-        self.img_begin = ""
-        self.img_dur = ""
-        self.audio_src = ""
-        self.audio_begin = ""
-        self.audio_dur = ""
-        self.textstream_src = ""
-        self.textstream_region = ""
+        self.id = ""
+        self.top = ""
+        self.bottom = ""
+        self.left = ""
+        self.right = ""
+        self.src = ""
+        self.region = ""
+        self.begin = ""
+        self.dur = ""
         self.tags = []
 
     def startElement(self, tag, attrs):
@@ -42,41 +37,41 @@ class SmallSMILHandler (ContentHandler):
 
         elif tag == 'region':
 
-            self.region_id = attrs.get('id', "")
-            self.region_top = attrs.get('top', "")
-            self.region_bottom = attrs.get('bottom', "")
-            self.region_left = attrs.get('left', "")
-            self.region_right = attrs.get('right', "")
-            self.region = {'id': self.region_id, 'top': self.region_top,
-            'bottom': self.region_bottom, 'left': self.region_left,
-            'right': self.region_right}
+            self.id = attrs.get('id', "")
+            self.top = attrs.get('top', "")
+            self.bottom = attrs.get('bottom', "")
+            self.left = attrs.get('left', "")
+            self.right = attrs.get('right', "")
+            self.region = {'id': self.id, 'top': self.top,
+            'bottom': self.bottom, 'left': self.left,
+            'right': self.right}
             self.tags.append([tag, self.region])
 
         elif tag == 'img':
 
-            self.img_src = attrs.get('src', "")
-            self.img_region = attrs.get('region', "")
-            self.img_begin = attrs.get('begin', "")
-            self.img_dur = attrs.get('dur', "")
-            self.img = {'src': self.img_src, 'region': self.img_region,
-            'begin': self.img_begin, 'dur': self.img_dur}
+            self.src = attrs.get('src', "")
+            self.region = attrs.get('region', "")
+            self.begin = attrs.get('begin', "")
+            self.dur = attrs.get('dur', "")
+            self.img = {'src': self.src, 'region': self.region,
+            'begin': self.begin, 'dur': self.dur}
             self.tags.append([tag, self.img])
 
         elif tag == 'audio':
 
-            self.audio_src = attrs.get('src', "")
-            self.audio_begin = attrs.get('begin', "")
-            self.audio_dur = attrs.get('dur', "")
-            self.audio = {'src': self.audio_src, 'begin': self.audio_begin,
-            'dur': self.audio_dur}
+            self.src = attrs.get('src', "")
+            self.begin = attrs.get('begin', "")
+            self.dur = attrs.get('dur', "")
+            self.audio = {'src': self.src, 'begin': self.begin,
+            'dur': self.dur}
             self.tags.append([tag, self.audio])
 
         elif tag == 'textstream':
 
-            self.textstream_src = attrs.get('src', "")
-            self.textstream_region = attrs.get('region', "")
-            self.textstream = {'src': self.textstream_src,
-            'region': self.textstream_region}
+            self.src = attrs.get('src', "")
+            self.region = attrs.get('region', "")
+            self.textstream = {'src': self.src,
+            'region': self.region}
             self.tags.append([tag, self.textstream])
 
     def get_tags(self):
