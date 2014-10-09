@@ -32,17 +32,3 @@ if __name__ == "__main__":
 					atribute[value] = lista
 					print atribute[value]	 
 
-	"""	
-	for elemento in lista:
-		tag = elemento[0]
-		atribute = elemento[1]
-		print tag,'\t',
-	
-		for value in atribute:
-			if atribute[value] != '':
-				print value,'=',atribute[value],'\t',
-		print
-
-	"""
-
-
