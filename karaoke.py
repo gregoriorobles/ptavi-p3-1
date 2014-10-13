@@ -10,7 +10,6 @@ from xml.sax.handler import ContentHandler
 
 import sys
 
-<<<<<<< HEAD
 
 class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
 
@@ -53,27 +52,3 @@ if __name__ == "__main__":
         print karaoke.__str__()
         karaoke.do_local()
         print karaoke.__str__()
-=======
-if __name__ == "__main__":
-
-	parser = make_parser()
-	sHandler = smallsmilhandler.SmallSMILHandler()
-	parser.setContentHandler(sHandler)
-	parser.parse(open(sys.argv[1]))
-	lista = sHandler.get_tags()
-
-	for elemento in lista:
-		tag = elemento[0]
-		atribute = elemento[1]
-
-		for value in atribute:
-			if atribute[value] != '':
-				if value == 'src':
-					recurso = atribute[value]
-					os.system("wget -q " + recurso)
-					lista = recurso.split('/')
-					lista = lista[-1]
-					atribute[value] = lista
-					print atribute[value]	 
-
->>>>>>> 42a1da9e7b78adff42274e8929fc5cdcb8e78551
