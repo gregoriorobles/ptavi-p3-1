@@ -28,7 +28,7 @@ class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
             exit += '\n' + tag + '\t'
             for value in atribute:
                 if atribute[value] != '':
-                    exit += value + '=' + atribute[value] + '\t'
+                    exit += value + '=' + "'" + atribute[value] + "'" + '\t'
         return exit
 
     def do_local(self):
