@@ -28,8 +28,7 @@ class SmallSMILHandler (ContentHandler):
 
             self.width = attrs.get('width', "")
             self.height = attrs.get('height', "")
-            self.background_color = attrs.get
-            ('background-color', "")
+            self.background_color = attrs.get('background-color', "")
             self.root_layout = {'width': self.width,
             'height': self.height, 'background-color':
             self.background_color}
