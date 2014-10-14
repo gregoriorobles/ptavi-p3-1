@@ -66,7 +66,7 @@ class SmallSMILHandler (ContentHandler):
             'dur': self.dur}
             self.tags.append([tag, self.audio])
 
-        elif tag == 'textstream':
+        elif tag == 'text-stream':
 
             self.src = attrs.get('src', "")
             self.region = attrs.get('region', "")
