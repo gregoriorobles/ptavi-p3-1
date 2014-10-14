@@ -28,7 +28,7 @@ class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
             exit += '\n' + tag + '\t'
             for value in atribute:
                 if atribute[value] != '':
-                    exit += value + '=' + "'" + atribute[value] + "'" + '\t'
+                    exit += value + '=' + '"' + atribute[value] + '"' + '\t'
         return exit
 
     def do_local(self):
@@ -49,6 +49,6 @@ if __name__ == "__main__":
         print "Usage: python karaoke.py file.smil"
     else:
         karaoke = KaraokeLocal(sys.argv[1])
-        print karaoke.__str__()
+        print karaoke
         karaoke.do_local()
-        print karaoke.__str__()
+        print karaoke
